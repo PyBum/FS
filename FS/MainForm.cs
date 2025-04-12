@@ -32,7 +32,7 @@ namespace FlowerShopManagement
             // Все пользователи могут видеть панель управления, товары и категории
             btnDashboard.Visible = true;
             btnProducts.Visible = true;
-            btnCategories.Visible = true;
+          
             btnOrders.Visible = true;
 
             // Только администраторы и менеджеры могут управлять поставщиками и инвентаризацией
@@ -41,7 +41,7 @@ namespace FlowerShopManagement
 
             // Только администраторы могут управлять пользователями и видеть отчеты
             btnUsers.Visible = currentUser.IsAdmin;
-            btnReports.Visible = currentUser.IsAdmin;
+            
         }
 
         private void OpenChildForm(Form childForm)
@@ -71,10 +71,7 @@ namespace FlowerShopManagement
             OpenChildForm(new ProductsForm());
         }
 
-        private void btnCategories_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new CategoriesForm());
-        }
+        
 
         private void btnOrders_Click(object sender, EventArgs e)
         {
@@ -117,17 +114,7 @@ namespace FlowerShopManagement
             }
         }
 
-        private void btnReports_Click(object sender, EventArgs e)
-        {
-            if (currentUser.IsAdmin)
-            {
-                OpenChildForm(new ReportsForm());
-            }
-            else
-            {
-                MessageBox.Show("У вас нет прав для доступа к этому разделу", "Ограничение доступа", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
+       
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {

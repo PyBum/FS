@@ -28,10 +28,6 @@ namespace FlowerShopManagement
                 object productCount = DatabaseHelper.ExecuteScalar(productQuery);
                 lblProductCount.Text = productCount?.ToString() ?? "0";
 
-                // Получаем общее количество категорий
-                string categoryQuery = "SELECT COUNT(*) FROM Categories";
-                object categoryCount = DatabaseHelper.ExecuteScalar(categoryQuery);
-                lblCategoryCount.Text = categoryCount?.ToString() ?? "0";
 
                 // Получаем общее количество заказов
                 string orderQuery = "SELECT COUNT(*) FROM Orders";
